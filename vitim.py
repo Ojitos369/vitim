@@ -89,14 +89,14 @@ def main(video_file, path_save, base_name, ext, start, end):
         frame_duration_formatted = format_timedelta(timedelta(seconds=current_duration)).replace(":", "-")
         # frame_filename = os.path.join(filename, f"frame{frame_duration_formatted}.jpg")
         # exit_name = f'{base_name}-{frame_duration_formatted}.jpg'
-        exit_name = f'{base_name}-{i}.{ext}'
+        exit_name = f'{base_name}-{frame_duration_formatted}.{ext}'
         if path_save:
             frame_filename = os.path.join(path_save, exit_name)
         else:
             frame_filename = os.path.join(filename, exit_name)
         # save the frame with the current duration
         video_clip.save_frame(frame_filename, current_duration)
-        print(f'Saving {i}: {exit_name} time {frame_duration_formatted}: ', True)
+        print(f'Saving {frame_duration_formatted}: {exit_name} time {frame_duration_formatted}: ', True)
     
     # make zip file
     zip_name = f'{base_name}-{saving_frames_per_second}.zip'
