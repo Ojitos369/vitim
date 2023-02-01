@@ -99,7 +99,8 @@ def main(video_file, path_save, base_name, ext, start, end):
         print(f'Saving {frame_duration_formatted}: {exit_name} time {frame_duration_formatted}: ', True)
     
     # make zip file
-    zip_name = f'{base_name}-{saving_frames_per_second}.zip'
+    time_name = f'{start if start else ""}{"-" if start and end else ""}{end if end else ""}{"-" if start or end else ""}{start if start else ""}'
+    zip_name = f'{base_name}-{time_name}{saving_frames_per_second}fps.zip'
     os.system(f'zip -r {zip_name} {path_save}')
 
 
